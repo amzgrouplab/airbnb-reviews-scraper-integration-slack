@@ -1,28 +1,21 @@
 {
-	"name": "air-bnb-crawler",
-	"version": "1.0.0",
-	"description": "Crawl a number of web pages using headless Chrome and Puppeteer",
-	"main": "main.js",
+	"name": "test-request",
+	"version": "0.0.1",
+	"description": "This is a boilerplate of an Apify actor.",
 	"dependencies": {
-		"apify": "^0.14.15",
-		"camelcase-keys-recursive": "^0.8.2",
-		"got": "^9.6.0",
+		"apify": "^0.17.0",
+		"camelcase-keys-recursive": "^0.8.3",
 		"moment": "^2.24.0",
-		"proxy-agent": "^3.1.0"
+		"querystring": "^0.2.0",
+		"request": "^2.88.0",
+		"request-promise": "^4.2.5",
+		"request-promise-native": "^1.0.8"
 	},
-	"devDependencies": {
-		"@petrpatek/eslint-config-apify": "^1.0.0",
-		"eslint": "^5.16.0"
-	},
+	"devDependencies": {},
 	"scripts": {
-		"start": "node main.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "node src/main.js",
+		"test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
 	},
-	"repository": {
-		"type": "git",
-		"url": ""
-	},
-	"author": "",
-	"license": "ISC",
-	"homepage": ""
+	"author": "It's not you it's me",
+	"license": "ISC"
 }

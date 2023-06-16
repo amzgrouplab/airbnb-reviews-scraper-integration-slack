@@ -1,7 +1,7 @@
 {
-	"name": "airbnb-scraper",
+	"name": "test-request",
 	"version": "0.0",
 	"buildTag": "latest",
 	"env": null,
-	"template": "puppeteer_crawler"
+	"template": "hello_world"
 }
