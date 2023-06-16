@@ -83,48 +83,6 @@ Apify.main(async () => {
         await addListings(locationQuery, requestQueue, minPrice, maxPrice, checkIn, checkOut);
     }
 
-    const getBaseMessage = (slackChannel, detailPagename, review, color = '#0066ff') => ({
-        channel: slackChannel,
-        text:  `:white_check_mark: *New review received from ${detailPagename}* `,
-        attachments: [
-            {
-                color,
-                blocks: [
-                    {
-                        type: 'section',
-                        fields: [
-                            {
-                                type: 'mrkdwn',
-                                text: `*Author:* ${review.guestName}\n`,
-                            },
-                            {
-                                type: 'mrkdwn',
-                                text: `*Date:* ${review.date}\n`,
-                            },
-                            {
-                                type: 'mrkdwn',
-                                text: `*Score:* ${review.score}\n`,
-                            },
-                        ],
-                    },
-                    {
-                        "type": "section",
-                        "text": {
-                            "type": "mrkdwn",
-                            "text": `*Positive:* ${review.positive}`,
-                        }
-                    },
-                    {
-                        "type": "section",
-                        "text": {
-                            "type": "mrkdwn",
-                            "text": `*Negative:* ${review.negative}`,
-                        }
-                    }
-                ],
-            },
-        ],
-    });
 
     const crawler = new Apify.BasicCrawler({
         requestQueue,
@@ -152,22 +110,6 @@ Apify.main(async () => {
                             log.exception(e, 'Could not get reviews');
                         }
                     }
-
-
-                    /*const token = "xoxb-5086549358049-5439419378340-NHrVpaMknJIVCJC0hyQ6DYJe";
-                    const slackChannel= "reviews";
-                    //const token = "xoxb-5384634643063-5429247221827-IagETGnAj99DUVEQmdI5a4W5";
-                    //const slackChannel= "project";
-                    const color = '#00cc00';
-                    const slackClient = new WebClient(token);
-                    log.info("**********************   review   *************************");
-                    log.info(detail.reviews);
-                    detail.reviews.map((review) => {
-                        let slackMessage = getBaseMessage(slackChannel, detail.name, review, color);
-                        const res = slackClient.chat.postMessage(slackMessage);
-                    });*/
-
-
 
                     await Apify.pushData(camelcaseKeysRecursive(detail));
                 } catch (e) {
